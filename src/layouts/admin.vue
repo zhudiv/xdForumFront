@@ -1,3 +1,9 @@
+<!--
+ * @Author: zdh
+ * @Date: 2022-05-07 17:12:55
+ * @LastEditTime: 2022-05-24 11:33:22
+ * @Description: 
+-->
 <script setup lang="ts">
 import MenuComponet from './admin/menu.vue'
 import Navbar from './admin/navbar.vue'
@@ -25,7 +31,7 @@ watch(
         <Navbar />
         <HistoryLink />
       </div>
-      <div class="m-3 relative overflow-y-auto">
+      <div class="m-3 relative">
         <router-view #default="{ Component, route }">
           <Transition
             appear

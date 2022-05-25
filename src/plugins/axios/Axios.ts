@@ -1,7 +1,7 @@
 /*
  * @Author: zdh
  * @Date: 2022-05-07 17:12:55
- * @LastEditTime: 2022-05-23 10:52:07
+ * @LastEditTime: 2022-05-25 11:05:55
  * @Description: 
  */
 import { RouteEnum } from '../../enum/RouteEnum'
@@ -53,13 +53,14 @@ export default class Axios {
     )
   }
   private interceptorsResponse() {
+    console.log('-----7777777-----interceptorsResponse-----')
     this.instance.interceptors.response.use(
       (response) => {
         return response
       },
       (error) => {
         const {
-          response: { status, data },
+          response: { status, data, msg },
         } = error
 
         switch (status) {
@@ -67,6 +68,10 @@ export default class Axios {
             store.remove(CacheEnum.TOKEN_NAME)
             router.push({ name: RouteEnum.LOGIN })
             break
+          case 500:
+            console.log('55555555')
+            ElMessage.error(error.response.msg)
+            break;
           case 422:
             errorStore().setErrors(error.response.data.errors)
             break

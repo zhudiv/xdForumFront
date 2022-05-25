@@ -1,13 +1,14 @@
 <!--
  * @Author: zdh
  * @Date: 2022-05-16 16:26:10
- * @LastEditTime: 2022-05-24 18:57:36
+ * @LastEditTime: 2022-05-25 15:17:05
  * @Description: 
 -->
 <script lang="ts">
 import { reactive, onMounted, toRefs, nextTick } from 'vue'
 import { colorTest } from '@/apis/colorApi'
-import _ from 'lodash'
+// import _ from 'lodash'
+
 
 interface Color {
   id: number

@@ -19,7 +19,7 @@ export interface ILoginForm {
 
 export function apiLogin(data: ILoginForm) {
   return http.request<ILoginAndRegisterResponse>({
-    url: `login`,
+    url: `user/login`,
     method: 'post',
     data,
   })

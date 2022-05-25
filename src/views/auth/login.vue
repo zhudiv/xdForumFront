@@ -4,7 +4,7 @@ import errorStore from '@/store/errorStore'
 import utils from '@/utils'
 import Footer from './footer.vue'
 
-const form = reactive({ account: '2300071698@qq.com', password: 'admin888', captcha_code: '', captcha_key: '' })
+const form = reactive({ account: '', password: '', captcha_code: '', captcha_key: '' })
 const storeError = errorStore()
 const { loadCaptcha } = useCaptcha()
 const onSubmit = async () => {
@@ -37,11 +37,12 @@ const onSubmit = async () => {
           <FormButton class="w-full mt-3 primary" :disabled="storeError.hasError">登录</FormButton>
 
           <div class="flex justify-center mt-3">
-            <icon-wechat
+            <i class="fab fa-weixin text-green-300 text-2xl"></i>
+            <!-- <icon-wechat
               theme="outline"
               size="24"
               fill="#fff"
-              class="fab fa-weixin bg-green-600 text-white rounded-full p-1 cursor-pointer" />
+              class="fab fa-weixin bg-green-600 text-white rounded-full p-1 cursor-pointer" /> -->
           </div>
         </div>
         <Footer />

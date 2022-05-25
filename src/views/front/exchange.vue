@@ -1,7 +1,7 @@
 <!--
  * @Author: zdh
  * @Date: 2022-05-16 16:26:10
- * @LastEditTime: 2022-05-24 10:48:28
+ * @LastEditTime: 2022-05-25 14:30:34
  * @Description: 
 -->
 <script lang="ts">
@@ -9,7 +9,9 @@ import { reactive, onMounted, toRefs, nextTick } from 'vue'
 import { colorTest } from '@/apis/colorApi'
 
 interface Color {
-  id: number
+  colorId: string,
+  color: string,
+  colors: string
 }
 
   // console.dir(colorTest)

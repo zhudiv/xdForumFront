@@ -1,7 +1,7 @@
 <!--
  * @Author: zdh
  * @Date: 2022-05-24 18:56:16
- * @LastEditTime: 2022-05-24 19:26:20
+ * @LastEditTime: 2022-05-24 20:21:31
  * @Description: 
 -->
 <script setup lang="ts">
@@ -19,10 +19,156 @@ import { colorTest } from '@/apis/colorApi'
     </div>
 
     <div class="overflow-y-auto scrollbar-w-2 scrollbar-track-gray-lighter scrollbar-thumb-rounded scrollbar-thumb-gray scrolling-touch lg:max-h-sm">
-      
       <el-button>默认按钮</el-button>
-      
-      <table class="w-full text-left border-collapse"><thead><tr><th class="z-20 sticky top-0 text-sm font-semibold text-gray-600 bg-white p-0"><div class="pb-2 pr-2 border-b border-gray-200">Class</div></th><th class="z-20 sticky top-0 text-sm font-semibold text-gray-600 bg-white p-0"><div class="pb-2 pl-2 border-b border-gray-200">Properties</div></th></tr></thead><tbody class="align-baseline"><tr><td translate="no" class="py-2 pr-2 font-mono text-xs text-violet-600 whitespace-nowrap">leading-3</td><td translate="no" class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre">line-height: .75rem;</td></tr><tr><td translate="no" class="py-2 pr-2 font-mono text-xs text-violet-600 whitespace-nowrap border-t border-gray-200">leading-4</td><td translate="no" class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre border-t border-gray-200">line-height: 1rem;</td></tr><tr><td translate="no" class="py-2 pr-2 font-mono text-xs text-violet-600 whitespace-nowrap border-t border-gray-200">leading-5</td><td translate="no" class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre border-t border-gray-200">line-height: 1.25rem;</td></tr><tr><td translate="no" class="py-2 pr-2 font-mono text-xs text-violet-600 whitespace-nowrap border-t border-gray-200">leading-6</td><td translate="no" class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre border-t border-gray-200">line-height: 1.5rem;</td></tr><tr><td translate="no" class="py-2 pr-2 font-mono text-xs text-violet-600 whitespace-nowrap border-t border-gray-200">leading-7</td><td translate="no" class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre border-t border-gray-200">line-height: 1.75rem;</td></tr><tr><td translate="no" class="py-2 pr-2 font-mono text-xs text-violet-600 whitespace-nowrap border-t border-gray-200">leading-8</td><td translate="no" class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre border-t border-gray-200">line-height: 2rem;</td></tr><tr><td translate="no" class="py-2 pr-2 font-mono text-xs text-violet-600 whitespace-nowrap border-t border-gray-200">leading-9</td><td translate="no" class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre border-t border-gray-200">line-height: 2.25rem;</td></tr><tr><td translate="no" class="py-2 pr-2 font-mono text-xs text-violet-600 whitespace-nowrap border-t border-gray-200">leading-10</td><td translate="no" class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre border-t border-gray-200">line-height: 2.5rem;</td></tr><tr><td translate="no" class="py-2 pr-2 font-mono text-xs text-violet-600 whitespace-nowrap border-t border-gray-200">leading-none</td><td translate="no" class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre border-t border-gray-200">line-height: 1;</td></tr><tr><td translate="no" class="py-2 pr-2 font-mono text-xs text-violet-600 whitespace-nowrap border-t border-gray-200">leading-tight</td><td translate="no" class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre border-t border-gray-200">line-height: 1.25;</td></tr><tr><td translate="no" class="py-2 pr-2 font-mono text-xs text-violet-600 whitespace-nowrap border-t border-gray-200">leading-snug</td><td translate="no" class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre border-t border-gray-200">line-height: 1.375;</td></tr><tr><td translate="no" class="py-2 pr-2 font-mono text-xs text-violet-600 whitespace-nowrap border-t border-gray-200">leading-normal</td><td translate="no" class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre border-t border-gray-200">line-height: 1.5;</td></tr><tr><td translate="no" class="py-2 pr-2 font-mono text-xs text-violet-600 whitespace-nowrap border-t border-gray-200">leading-relaxed</td><td translate="no" class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre border-t border-gray-200">line-height: 1.625;</td></tr><tr><td translate="no" class="py-2 pr-2 font-mono text-xs text-violet-600 whitespace-nowrap border-t border-gray-200">leading-loose</td><td translate="no" class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre border-t border-gray-200">line-height: 2;</td></tr></tbody></table></div>
+
+      <div class="overflow-hidden rounded-md bg-purple-400 mt-2">
+        <pre class="flex align-middle scrollbar-none overflow-x-auto text-sm leading-snug language-html text-white bg-black bg-opacity-75">
+          <code class="language-html">
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-button</span><span class="token attr-value"></span><span class="token punctuation">&gt;</span></span>默认按钮<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-button</span><span class="token punctuation">&gt;</span></span>
+          </code>
+          </pre>
+      </div>
+      <table class="w-full text-left border-collapse mt-5">
+        <thead>
+          <tr>
+            <th class="z-20 sticky top-0 text-sm font-semibold text-gray-600 bg-white p-0">
+              <div class="pb-2 pr-2 border-b border-gray-200">颜色</div>
+            </th>
+            <th class="z-20 sticky top-0 text-sm font-semibold text-gray-600 bg-white p-0">
+              <div class="pb-2 pl-2 border-b border-gray-200">
+                Code
+              </div>
+            </th>
+            <th class="z-20 sticky top-0 text-sm font-semibold text-gray-600 bg-white p-0">
+              <div class="pb-2 pr-2 border-b border-gray-200">预览</div>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="align-baseline">
+          <tr>
+            <td translate="no" class="py-2 pr-2 font-mono text-xs text-grey whitespace-nowrap">
+              <div class="flex">
+                <div class="w-4 h-4 bg-green-500"></div>
+                <span class="ml-2">主要操作</span>
+              </div>
+            </td>
+            <td translate="no" class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre">
+              <code class="language-html">
+                <span class="token tag">
+                  <span class="token tag">
+                    <span class="token punctuation">&lt;</span>el-button type=<span class="token punctuation">"</span>success<span class="token punctuation">"</span>
+                  </span>
+                  <span class="token attr-value"></span>
+                  <span class="token punctuation">&gt;</span>
+                </span>主要操作<span class="token tag">
+                  <span class="token tag">
+                    <span class="token punctuation">&lt;/</span>el-button</span>
+                  <span class="token punctuation">&gt;</span>
+                </span>
+              </code>
+            </td>
+            <td translate="no" class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre">
+              <el-button type="success">主要操作</el-button>
+            </td>
+          </tr>
+          <tr>
+            <td translate="no" class="py-2 pr-2 font-mono text-xs text-grey whitespace-nowrap">
+              <div class="flex">
+                <div class="w-4 h-4 bg-blue-500"></div>
+                <span class="ml-2">辅助操作</span>
+              </div>
+            </td>
+            <td translate="no" class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre">
+              <code class="language-html">
+                <span class="token tag">
+                  <span class="token tag">
+                    <span class="token punctuation">&lt;</span>el-button type=<span class="token punctuation">"</span>primary<span class="token punctuation">"</span>
+                  </span>
+                  <span class="token attr-value"></span>
+                  <span class="token punctuation">&gt;</span>
+                </span>辅助操作<span class="token tag">
+                  <span class="token tag">
+                    <span class="token punctuation">&lt;/</span>el-button</span>
+                  <span class="token punctuation">&gt;</span>
+                </span>
+              </code>
+            </td>
+            <td translate="no" class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre">
+              <el-button type="primary">辅助操作</el-button>
+            </td>
+          </tr>
+
+          <tr>
+            <td translate="no" class="py-2 pr-2 font-mono text-xs text-grey whitespace-nowrap">
+              <div class="flex">
+                <div class="w-4 h-4 bg-yellow-500"></div>
+                <span class="ml-2">警示操作</span>
+              </div>
+            </td>
+            <td translate="no" class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre">
+              <code class="language-html">
+                <span class="token tag">
+                  <span class="token tag">
+                    <span class="token punctuation">&lt;</span>el-button type=<span class="token punctuation">"</span>warning<span class="token punctuation">"</span>
+                  </span>
+                  <span class="token attr-value"></span>
+                  <span class="token punctuation">&gt;</span>
+                </span>警示操作<span class="token tag">
+                  <span class="token tag">
+                    <span class="token punctuation">&lt;/</span>el-button</span>
+                  <span class="token punctuation">&gt;</span>
+                </span>
+              </code>
+            </td>
+            <td translate="no" class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre">
+              <el-button type="warning">警示操作</el-button>
+            </td>
+          </tr>
+          
+          <tr>
+            <td translate="no" class="py-2 pr-2 font-mono text-xs text-grey whitespace-nowrap">
+              <div class="flex">
+                <div class="w-4 h-4 bg-red-500"></div>
+                <span class="ml-2">流程中断操作</span>
+              </div>
+            </td>
+            <td translate="no" class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre">
+              <code class="language-html">
+                <span class="token tag">
+                  <span class="token tag">
+                    <span class="token punctuation">&lt;</span>el-button type=<span class="token punctuation">"</span>danger<span class="token punctuation">"</span>
+                  </span>
+                  <span class="token attr-value"></span>
+                  <span class="token punctuation">&gt;</span>
+                </span>流程中断操作<span class="token tag">
+                  <span class="token tag">
+                    <span class="token punctuation">&lt;/</span>el-button</span>
+                  <span class="token punctuation">&gt;</span>
+                </span>
+              </code>
+            </td>
+            <td translate="no" class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre">
+              <el-button type="danger">流程中断操作</el-button>
+            </td>
+          </tr>
+
+          <tr>
+            <td translate="no" class="py-2 pr-2 font-mono text-xs text-grey whitespace-nowrap">
+              <div class="flex">
+                <div class="w-4 h-4 bg-gray-300"></div>
+                <span class="ml-2">次要操作</span>
+              </div>
+            </td>
+            <td translate="no" class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre">
+              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-button</span><span class="token attr-value"></span><span class="token punctuation">&gt;</span></span>次要操作<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-button</span><span class="token punctuation">&gt;</span></span>
+            </td>
+            <td translate="no" class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre">
+              <el-button>次要操作</el-button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
   <div class="hidden xl:text-sm xl:block flex-none w-64 pl-8 mr-8">
     <div

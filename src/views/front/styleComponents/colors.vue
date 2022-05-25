@@ -1,7 +1,7 @@
 <script lang="ts">
 import { reactive, onMounted, toRefs, nextTick } from 'vue'
 import { colorTest } from '@/apis/colorApi'
-import _ from 'lodash'
+// import _ from 'lodash'
 
 interface Color {
   id: number
@@ -66,7 +66,7 @@ interface ColorResult {
   >
     <div>
       <div class="grid grid-cols1 gap-8">
-        <div v-for="(item) in colorList" :key="item.id">
+        <div v-for="(item, index) in colorList" :key="'color'+ index">
           <div
             class="flex flex-col space-y-3 sm:flex-row text-xs sm:space-y-0 sm:space-x-4"
           >

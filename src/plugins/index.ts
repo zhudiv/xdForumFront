@@ -1,7 +1,7 @@
 import { App } from 'vue'
 import { setupTailwindcss } from './tailwindcss'
 import setupElementPlus from './elementui'
-import _ from 'lodash'
+// import _ from 'lodash'
 import setupPinia from './pinia'
 import setupIconPark from './iconpark'
 // import { setupTDesign } from './tdesign'

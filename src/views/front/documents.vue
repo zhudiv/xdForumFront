@@ -1,12 +1,12 @@
 <!--
  * @Author: zdh
  * @Date: 2022-05-16 16:26:10
- * @LastEditTime: 2022-05-24 15:56:48
+ * @LastEditTime: 2022-05-25 14:25:19
  * @Description: 
 -->
 <script lang="ts">
 import { reactive, onMounted, toRefs, nextTick } from 'vue'
-import { colorTest } from '@/apis/colorApi'
+import { ColorResult, colorTest } from '@/apis/colorApi'
 
 interface Color {
   id: number
@@ -24,7 +24,7 @@ interface Color {
   export default {
     setup() {
       const state = reactive({
-        colorList: [] as Color[]
+        colorList: [] as ColorResult[]
       })
 
       onMounted(async () => {

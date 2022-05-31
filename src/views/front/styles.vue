@@ -1,14 +1,15 @@
 <!--
  * @Author: zdh
  * @Date: 2022-05-16 16:26:10
- * @LastEditTime: 2022-05-25 15:17:05
+ * @LastEditTime: 2022-05-31 16:54:51
  * @Description: 
 -->
-<script lang="ts">
+<script setup lang="ts">
 import { reactive, onMounted, toRefs, nextTick } from 'vue'
-import { colorTest } from '@/apis/colorApi'
+import { stylesList } from '@/apis/stylesApi'
 // import _ from 'lodash'
 
+const stylesListArr = ref()
 
 interface Color {
   id: number
@@ -20,6 +21,30 @@ interface ColorResult {
   colors: any[]
 }
 
+
+stylesList(null).then(res => {
+  console.log("-----------")
+
+  let tmp = res.data;
+  console.dir(tmp)
+  let des = tmp.filter(item => {
+    if(item.level == 1){
+      item.children = []
+      return true
+    }
+  })
+
+  des.forEach(item => {
+    tmp.forEach(s => {
+      if(s.parentId == item.id){
+        item.children.push(s)
+      }
+    })
+  })
+   console.log("++++++")
+  console.dir(des)
+  stylesListArr.value = des
+})
   // console.dir(colorTest)
   // const colorList = ref()
   // colorTest( {id: 1} ).then( result  => {
@@ -29,45 +54,7 @@ interface ColorResult {
   //   colorList.value = result.data
   // })
 
-  export default {
-    setup() {
-      const state = reactive({
-        colorList: [] as ColorResult[]
-      })
 
-      onMounted(async () => {
-        console.log("999999999")
-        const { data} = await colorTest( {id: 1} )
-        console.log('88888888')
-        console.dir(data)
-        let a = [{name: 1, key: 2}, {name: 3, key: 4}]
-        console.dir(JSON.stringify(a))
-        console.log('+++++')
-        state.colorList = data.map( item =>{
-          console.dir(item)
-          console.dir(item.colors)
-          console.dir(JSON.parse(item.colors))
-          let tmp: ColorResult = {
-            colorId: item.colorId,
-            color: item.color,
-            colors: JSON.parse(item.colors)
-
-          }
-          console.dir(tmp)
-          return tmp
-        })
-      })
-      const addColorGroup = (v:any) => {
-        console.log('77777')
-        console.dir(v)
-      }
-
-      return {
-        ...toRefs(state),
-        addColorGroup
-      }
-    }
-  }
 
   // test().then(({ data }) => (tests.value = data))
 </script>
@@ -85,6 +72,31 @@ interface ColorResult {
             class="px-1 pt-6 font-medium text-base sm:px-3 xl:px-5 lg:text-sm pb-10 lg:pt-10 lg:pb-14 sticky?lg:h-(screen-18)"
           >
             <ul>
+              <li class="mt-8" v-for="item in stylesListArr" :key="item.id">
+                <h5
+                  class="px-3 mb-3 lg:mb-3 uppercase tracking-wide font-semibold text-sm lg:text-xs text-gray-900"
+                >
+                  {{ item.name }}
+                </h5>
+                <ul>
+                  <li v-for="s in item.children" :key="s.id">
+                    <a
+                      class="px-3 py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500"
+                      href="/front/styles/colors"
+                      ><span
+                        class="rounded-md absolute inset-0 bg-cyan-50 opacity-0"
+                      ></span
+                      ><span class="relative">{{ s.name }}</span></a
+                    >
+                  </li>
+                </ul>
+              </li>
+
+              <li class="mt-8">
+                <h5 class="px-3 mb-3 lg:mb-3 uppercase tracking-wide font-semibold text-sm lg:text-xs text-gray-900">
+                  说明
+                </h5>
+              </li>
               <li class="mt-8">
                 <h5
                   class="px-3 mb-3 lg:mb-3 uppercase tracking-wide font-semibold text-sm lg:text-xs text-gray-900"

@@ -9,7 +9,8 @@ export function apiInfo() {
 
 export interface ILoginAndRegisterResponse {
   user: IUser
-  token: string
+  token: string,
+  type: string
 }
 
 export interface ILoginForm {

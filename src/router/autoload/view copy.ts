@@ -1,22 +1,19 @@
 /*
  * @Author: zdh
  * @Date: 2022-05-07 17:12:55
- * @LastEditTime: 2022-05-31 15:04:43
+ * @LastEditTime: 2022-05-31 14:06:47
  * @Description: 
  */
 import { RouteRecordRaw } from 'vue-router'
 
-// const layouts = import.meta.globEager('../layouts/*.vue')
+const layouts = import.meta.globEager('../layouts/*.vue')
 const views = import.meta.globEager('../views/**/*.vue')
 
-const layouts = import.meta.globEager('../layouts2/*.vue')
 console.log('9999999999999')
-// console.dir(lo)
-
+console.dir(layouts)
 
 function getRoutes() {
     console.log('88888888')
-    // console.dir(layouts)
     const layoutRoutes = [] as RouteRecordRaw[]
     console.dir(layouts)
 

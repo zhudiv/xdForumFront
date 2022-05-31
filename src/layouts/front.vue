@@ -1,7 +1,7 @@
 <!--
  * @Author: zdh
  * @Date: 2022-05-16 16:17:42
- * @LastEditTime: 2022-05-24 14:30:21
+ * @LastEditTime: 2022-05-31 10:23:29
  * @Description: 
 -->
 <script setup lang="ts">
@@ -27,6 +27,24 @@ watch(
         <Navbar />
       </div>
       <div class="m-3 relative z-10">
+        <router-view>
+          <!-- <Transition
+            appear
+            class="animate__animated"
+            :enter-active-class="route.meta.enterClass ?? 'animate__fadeInRight'"
+            :leave-active-class="route.meta.leaveClass ?? 'animate__fadeOutLeft'">
+            <component :is="Component" class="absolute w-full" />
+          </Transition> -->
+        </router-view>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="admin h-screen w-screen grid">
+    <div class="content bg-gray-100 grid grid-rows-[auto_1fr]">
+      <div class="z-50 sticky top-0">
+        <Navbar />
+      </div>
+      <div class="m-3 relative z-10">
         <router-view #default="{ Component, route }">
           <Transition
             appear
@@ -38,7 +56,7 @@ watch(
         </router-view>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <style lang="scss" scoped>

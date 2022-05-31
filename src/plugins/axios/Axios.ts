@@ -1,7 +1,7 @@
 /*
  * @Author: zdh
  * @Date: 2022-05-07 17:12:55
- * @LastEditTime: 2022-05-25 11:05:55
+ * @LastEditTime: 2022-05-31 14:09:46
  * @Description: 
  */
 import { RouteEnum } from '../../enum/RouteEnum'
@@ -24,9 +24,24 @@ export default class Axios {
     console.log('666666')
     return new Promise(async (resolve, reject) => {
       try {
+        console.log("3485923745")
+        
         const response = await this.instance.request<D>(config)
-        resolve(response.data)
+        
+        interface Res {
+          msg: string
+          status: number
+          data: T
+        }
+        const res = response.data as unknown as Res
+        if(res.status === 200 ) {
+          resolve(response.data)
+        }else{
+          ElMessage.error(res.msg)
+          reject(response.data)
+        }
       } catch (error) {
+        console.log("----------")
         reject(error)
       }
     }) as Promise<D>
@@ -53,7 +68,6 @@ export default class Axios {
     )
   }
   private interceptorsResponse() {
-    console.log('-----7777777-----interceptorsResponse-----')
     this.instance.interceptors.response.use(
       (response) => {
         return response

@@ -1,7 +1,7 @@
 /*
  * @Author: zdh
  * @Date: 2022-05-16 16:22:05
- * @LastEditTime: 2022-05-24 18:54:41
+ * @LastEditTime: 2022-05-31 10:09:44
  * @Description: 
  */
 import { RouteRecordRaw } from 'vue-router'
@@ -10,7 +10,8 @@ export default {
   name: 'front',
   path: '/front',
   component: () => import('@/layouts/front.vue'),
-  meta: { auth: true, menu: { title: '前端', icon: 'Deeplink' } },
+  redirect: '/front/styles',
+  meta: { auth: false, menu: { title: '前端', icon: 'Deeplink' } },
   children: [
     {
       name: 'front.docs',

@@ -50,7 +50,7 @@ let handleIndex = (sel:number):void => {
 <template>
   <div class="bg-white p-3 px-5 flex justify-between items-center z-50">
     <div class="flex items-center">
-      <img src="/images/navIcon.png" class="w-6 h-6 object-cove" />
+      <img src="/images/navIcon.png" class="w-6 h-6 object-cove hover:cursor-auto" @click="$router.push('/')"/>
       <span class="pl-3 font-medium hidden sm:block">XD Design UI</span>
       <!-- <div @click="menuService.toggleState" class="mr-2">
         <icon-menu-fold-one

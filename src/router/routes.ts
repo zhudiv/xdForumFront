@@ -1,3 +1,9 @@
+/*
+ * @Author: zdh
+ * @Date: 2022-05-07 17:12:55
+ * @LastEditTime: 2022-05-31 15:50:36
+ * @Description: 
+ */
 import { RouteRecordRaw } from 'vue-router'
 
 const routes = [
@@ -28,6 +34,34 @@ const routes = [
     path: '/article',
     name: 'article',
     component: () => import('@/views/article.vue'),
+  },
+  {
+    path: '/front',
+    name: 'front',
+    component: () => import('@/views/front.vue'),
+    redirect: '/front/styles',
+    children: [
+      {
+        path: 'styles',
+        name: 'front.styles',
+        component: () => import('@/views/front/styles.vue')
+      },
+      {
+        path: 'docs',
+        name: 'front.docs',
+        component: () => import('@/views/front/docs.vue')
+      },
+      {
+        path: 'docs',
+        name: 'front.documents',
+        component: () => import('@/views/front/documents.vue')
+      },
+      {
+        path: 'exchange',
+        name: 'front.exchange',
+        component: () => import('@/views/front/exchange.vue')
+      }
+    ]
   },
   {
     path: '/:any(.*)',

@@ -1,7 +1,7 @@
 /*
  * @Author: zdh
  * @Date: 2022-05-07 17:12:55
- * @LastEditTime: 2022-05-31 14:28:43
+ * @LastEditTime: 2022-06-01 15:52:48
  * @Description: 
  */
 import { Router, RouteRecordRaw } from 'vue-router'
@@ -13,18 +13,20 @@ import userStore from '@/store/userStore'
 import store from '@/utils/store'
 import { CacheEnum } from '@/enum/CacheEnum'
 
-let routes: RouteRecordRaw[] = [] 
-if(store.get(CacheEnum.TOKEN_TYPE) == 1){  // 管理员登录
-  routes = autoloadModuleRoutes()
-}else{
-  routes = getRoutes()
-  console.log("-------33333344444444555555------")
-  console.dir(routes)
-}
+let routes: RouteRecordRaw[] = []
+
+console.log('-----------autoloadModuleRoutes----------')
+// if(store.get(CacheEnum.TOKEN_TYPE) == 1){  // 管理员登录
+  // routes = autoloadModuleRoutes()
+// }else{
+  // routes = getRoutes()
+//   console.log("-------33333344444444555555------")
+//   console.dir(routes)
+// }
 
 function autoload(router: Router) {
+  console.log('-----------autoloadModuleRoutes autoload----------')
   const user = userStore()
-  console.dir(console.dir(user))
 
   routes = routes.map((route) => {
     route.children = route.children?.filter((r) => {

@@ -1,7 +1,7 @@
 /*
  * @Author: zdh
  * @Date: 2022-05-07 17:12:55
- * @LastEditTime: 2022-05-31 14:49:58
+ * @LastEditTime: 2022-06-01 14:18:59
  * @Description: 
  */
 import { App } from 'vue'
@@ -16,7 +16,7 @@ const router = createRouter({
 })
 
 export async function setupRouter(app: App) {
-  autoload(router)
+  // autoload(router)
   guard(router)
   app.use(router)
 }

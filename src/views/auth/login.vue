@@ -1,14 +1,51 @@
+
 <script setup lang="ts">
 import useCaptcha from '@/composables/useCaptcha'
 import errorStore from '@/store/errorStore'
 import utils from '@/utils'
 import Footer from './footer.vue'
 
+// import router from '@/router'
+
+import app from '@/main'
+
+
+import autoloadModuleRoutes from '@/router/autoload/module'
+
+import { useRouter } from 'vue-router'
+import { getCurrentInstance } from 'vue'
+
+import { CacheEnum } from '@/enum/CacheEnum'
+
+import routerStore from '@/store/routerStore'
+
+const router = useRouter()
+
 const form = reactive({ account: '', password: '', captcha_code: '', captcha_key: '' })
 const storeError = errorStore()
 const { loadCaptcha } = useCaptcha()
 const onSubmit = async () => {
   await utils.user.login(form)
+
+  const a = autoloadModuleRoutes()
+  // // console.log("mmmmmmmmmmmmm")
+  // // console.dir(a)
+  // // console.dir(router.getRoutes())
+  a.forEach(item => {
+    router.addRoute(item)
+  })
+
+  const store = routerStore()
+  store.resetRouterLink(a)
+  utils.store.set( 'router_list', JSON.stringify(autoloadModuleRoutes()))
+  router.push({name: 'admin.home'})
+  // console.dir(router.getRoutes())
+  // console.dir(router)
+
+  // console.log('ooooooooooooo')
+  // console.dir(app)
+  // app.use(router)
+
 }
 </script>
 

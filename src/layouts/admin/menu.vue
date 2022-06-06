@@ -19,7 +19,7 @@ watch(route, () => menuService.setCurrentMenu(route), { immediate: true })
           fill="#dcdcdc"
           class="mr-2"
           @click="$router.push({ name: RouteEnum.HOME })" />
-        <span class="text-md cursor-pointer" @click="$router.push({ name: RouteEnum.ADMIN })">晚八点直播</span>
+        <span class="text-md cursor-pointer" @click="$router.push({ name: RouteEnum.ADMIN })">后台管理</span>
       </div>
       <!-- 菜单 -->
       <div class="container">

@@ -1,7 +1,7 @@
 /*
  * @Author: zdh
  * @Date: 2022-05-07 17:12:55
- * @LastEditTime: 2022-05-31 09:47:30
+ * @LastEditTime: 2022-06-01 14:34:19
  * @Description: 
  */
 import { ElMessage } from 'element-plus'
@@ -20,6 +20,8 @@ import store from './store'
 import router from '@/router'
 import userStore from '@/store/userStore'
 import { da } from 'element-plus/lib/locale'
+
+import autoloadModuleRoutes from '@/router/autoload/module'
 
 export function isLogin(): boolean {
   return !!store.get(CacheEnum.TOKEN_NAME)
@@ -47,18 +49,27 @@ export async function forgetPassword(values: IForgetPassword) {
  * @param data
  */
 function loginAndRegisterCallback(data: ILoginAndRegisterResponse) {
-  store.set(CacheEnum.TOKEN_NAME, data.token)
+  // store.set(CacheEnum.TOKEN_NAME, data.token)
   store.set(CacheEnum.TOKEN_TYPE, data.type)
 
   userStore().getUserInfo()
 
   const routeName = store.get(CacheEnum.REDIRECT_ROUTE_NAME) ?? 'home'
 
-  if(data.type == '2'){
-    router.push({ name: 'front.styles' })
-  }else{
-    router.push({ name: routeName })
-  }
+  // console.log('3333333333333')
+  // console.dir(router)
+
+  // const a = autoloadModuleRoutes()
+  // console.dir(a)
+  // a.forEach(item => {
+  //   router.addRoute(item)
+  // })
+  // console.dir(router)
+  // if(data.type == '2'){
+  //   router.push({ name: 'front.styles' })
+  // }else{
+  //   router.push({ name: routeName })
+  // }
 
   ElMessage({ type: 'success', message: '登录成功' })
 }

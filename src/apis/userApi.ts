@@ -7,6 +7,12 @@ export function apiInfo() {
   })
 }
 
+export function userList() {
+  return http.request<null>({
+    url: `user/list`,
+  })
+}
+
 export interface ILoginAndRegisterResponse {
   user: IUser
   token: string,

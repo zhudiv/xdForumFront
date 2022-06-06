@@ -7,6 +7,7 @@ import '@/styles/global.scss'
 import 'animate.css'
 import registerDirective from './directive'
 
+const app = createApp(App)
 class Main {
   public async bootstrap() {
     const app = this.app()
@@ -14,9 +15,9 @@ class Main {
     await router.isReady()
     app.mount('#app')
   }
+
   //初始应用
-  private app(): AppType {
-    const app = createApp(App)
+  private app(): AppType {    
     setupPlugins(app)
     setupRouter(app)
 
@@ -30,3 +31,5 @@ class Main {
 }
 
 new Main().bootstrap()
+
+export default app

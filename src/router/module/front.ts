@@ -1,7 +1,7 @@
 /*
  * @Author: zdh
  * @Date: 2022-05-16 16:22:05
- * @LastEditTime: 2022-05-31 10:09:44
+ * @LastEditTime: 2022-06-01 17:28:04
  * @Description: 
  */
 import { RouteRecordRaw } from 'vue-router'
@@ -9,10 +9,16 @@ import { RouteRecordRaw } from 'vue-router'
 export default {
   name: 'front',
   path: '/front',
-  component: () => import('@/layouts/front.vue'),
+  component: () => import('@/views/front.vue'),
   redirect: '/front/styles',
   meta: { auth: false, menu: { title: '前端', icon: 'Deeplink' } },
   children: [
+    // {
+    //   name: 'front.styles',
+    //   path: 'styles',
+    //   component: () => import('@/views/front/styles.vue'),
+    //   meta: { menu: { title: '文档说明' } }
+    // },
     {
       name: 'front.docs',
       path: 'docs',

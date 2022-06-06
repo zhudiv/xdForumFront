@@ -71,9 +71,6 @@ class Menu {
   }
 
   getMenuByRoute() {
-    console.log('---------getMenuByRoute---------')
-    console.dir(router)
-    return []
     return router
       .getRoutes()
       .filter((route) => route.children.length && route.meta.menu)

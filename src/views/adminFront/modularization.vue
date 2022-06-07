@@ -164,11 +164,11 @@ const tableData: User[] = [
 </script>
 
 <template>
-<div class="p-2 rounded-sm shadow-sm h-full relative">
-  <div class="flex gap-2 h-full">
-    <div class="bg-white h-full p-2 shadow-sm rounded-sm">
-      <div class="custom-tree-container">
-        <p>模块</p>
+<div class="p-2 rounded-sm shadow-sm relative">
+  <div class="flex gap-2">
+    <div class="bg-white p-2 shadow-sm rounded-sm w-1/6">
+      <div class="custom-tree-container ">
+        <p>模块2</p>
         <el-divider />
         <el-tree
           :data="listData"
@@ -188,7 +188,7 @@ const tableData: User[] = [
         </el-tree>
       </div>
     </div>
-    <div class="relative bg-white w-full p-2 rounded-sm shadow-sm">
+    <div class="relative bg-white flex-auto  p-2 rounded-sm shadow-sm">
       222
       <router-view></router-view>
     </div>

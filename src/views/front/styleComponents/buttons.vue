@@ -1,12 +1,11 @@
 <!--
  * @Author: zdh
  * @Date: 2022-05-24 18:56:16
- * @LastEditTime: 2022-05-24 20:21:31
+ * @LastEditTime: 2022-06-07 10:10:10
  * @Description: 
 -->
 <script setup lang="ts">
 import { reactive, onMounted, toRefs, nextTick } from 'vue'
-import { colorTest } from '@/apis/colorApi'
 </script>
 
 

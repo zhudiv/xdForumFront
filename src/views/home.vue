@@ -1,18 +1,17 @@
 <!--
  * @Author: zdh
  * @Date: 2022-05-07 17:12:55
- * @LastEditTime: 2022-05-31 15:48:21
+ * @LastEditTime: 2022-06-07 10:07:00
  * @Description: 
 -->
 <script setup lang="ts">
 import utils from '@/utils'
 import { RouteEnum } from '@/enum/routeEnum'
-import { ColorResult, colorTest } from '@/apis/colorApi'
+import { ColorResult } from '@/apis/colorApi'
 
 import { useRoute } from 'vue-router'
 const router = useRouter()
 const visitor = () => {
-  // const { data} = await colorTest( {id: 1} )
   router.push({ name: 'front' })
 }
 </script>

@@ -1,6 +1,6 @@
 <script lang="ts">
 import { reactive, onMounted, toRefs, nextTick } from 'vue'
-import { colorTest } from '@/apis/colorApi'
+import { colorList } from '@/apis/colorApi'
 // import _ from 'lodash'
 
 interface Color {
@@ -13,47 +13,39 @@ interface ColorResult {
   colors: any[]
 }
 
-  // console.dir(colorTest)
-  // const colorList = ref()
-  // colorTest( {id: 1} ).then( result  => {
-  //   // tests.value = data
-  //   // console.log('777777777777')
-  //   // console.dir(data)
-  //   colorList.value = result.data
-  // })
 
-  export default {
-    setup() {
-      const state = reactive({
-        colorList: [] as ColorResult[]
+export default {
+  setup() {
+    const state = reactive({
+      colorList: [] as ColorResult[]
+    })
+
+    onMounted(async () => {
+      const { data} = await colorList( {id: 1} )
+
+      let a = [{name: 1, key: 2}, {name: 3, key: 4}]
+
+      state.colorList = data.map( item =>{
+        let tmp: ColorResult = {
+          colorId: item.colorId,
+          color: item.color,
+          colors: JSON.parse(item.colors)
+
+        }
+        console.dir(tmp)
+        return tmp
       })
+    })
+    const addColorGroup = (v:any) => {
 
-      onMounted(async () => {
-        const { data} = await colorTest( {id: 1} )
+    }
 
-        let a = [{name: 1, key: 2}, {name: 3, key: 4}]
-
-        state.colorList = data.map( item =>{
-          let tmp: ColorResult = {
-            colorId: item.colorId,
-            color: item.color,
-            colors: JSON.parse(item.colors)
-
-          }
-          console.dir(tmp)
-          return tmp
-        })
-      })
-      const addColorGroup = (v:any) => {
-
-      }
-
-      return {
-        ...toRefs(state),
-        addColorGroup
-      }
+    return {
+      ...toRefs(state),
+      addColorGroup
     }
   }
+}
 
   // test().then(({ data }) => (tests.value = data))
 </script>

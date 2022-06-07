@@ -1,59 +1,122 @@
-<script lang="ts">
+<script lang="ts" setup>
 import { reactive, onMounted, toRefs, nextTick } from 'vue'
-import { colorTest } from '@/apis/colorApi'
+import { colorList, colorInsert } from '@/apis/colorApi'
+import { ElMessage, ElMessageBox } from 'element-plus'
+import { ElTable } from 'element-plus'
+import { ColorUnit } from '@/apis/types/colors'
 // import _ from 'lodash'
 
-interface Color {
-  id: number
+
+
+
+const colorListArr = ref<ColorUnit[]>()
+
+const getColorList =  async () =>{
+  const { data} = await colorList()
+  colorListArr.value = data
 }
 
-interface ColorResult {
-  colorId: string,
-  color: string,
-  colors: any[]
-}
+onMounted( () => {
+  getColorList()
+})
 
-  // console.dir(colorTest)
-  // const colorList = ref()
-  // colorTest( {id: 1} ).then( result  => {
-  //   // tests.value = data
-  //   // console.log('777777777777')
-  //   // console.dir(data)
-  //   colorList.value = result.data
-  // })
 
-  export default {
-    setup() {
-      const state = reactive({
-        colorList: [] as ColorResult[]
-      })
+  // export default {
+  //   setup() {
+  //     const state = reactive({
+  //       colorList: [] as ColorResult[],
+  //       colors: [] as ColorUnit[],
+  //       dialogFormVisible: false,
+  //       form: {
+  //         name: ''
+  //       }
+  //     })
 
-      onMounted(async () => {
-        const { data} = await colorTest( {id: 1} )
 
-        let a = [{name: 1, key: 2}, {name: 3, key: 4}]
+  //     onMounted( () => {
+  //       getColorList()
+  //     })
 
-        state.colorList = data.map( item =>{
-          let tmp: ColorResult = {
-            colorId: item.colorId,
-            color: item.color,
-            colors: JSON.parse(item.colors)
+  //     const getColorList = async () => {
+  //       const { data} = await colorList( {colorId: 1} )
 
-          }
-          console.dir(tmp)
-          return tmp
-        })
-      })
-      const addColorGroup = (v:any) => {
+  //       let a = [{name: 1, key: 2}, {name: 3, key: 4}]
 
-      }
+  //       state.colorList = data.map( item =>{
+  //         let tmp: ColorResult = {
+  //           colorId: item.colorId,
+  //           color: item.color,
+  //           colors: JSON.parse(item.colors)
 
-      return {
-        ...toRefs(state),
-        addColorGroup
-      }
-    }
-  }
+  //         }
+  //         console.dir(tmp)
+  //         return tmp
+  //       })
+  //       state.colors = state.colorList[0].colors
+  //     }
+
+  //     const addColorGroup = (v:any) => {
+
+  //     }
+  //     const handleEdit = (index: number, row: ColorUnit) => {
+  //       console.log(index, row)
+  //     }
+  //     const handleDelete = (index: number, row: ColorUnit) => {
+  //       console.log(index, row)
+  //     }
+
+  //     const goAddColor = (v:any) => {
+  //       ElMessageBox.confirm(
+  //         '是否增加新颜色？',
+  //         '提示',
+  //         {
+  //           confirmButtonText: '确认',
+  //           cancelButtonText: '取消',
+  //           type: 'warning',
+  //         }
+  //       )
+  //       .then(() => {
+  //         colorInsert({
+  //           color: state.form.name
+  //         }).then(res => {
+  //           ElMessage({
+  //             type: 'success',
+  //             message: '添加成功',
+  //           })
+  //           state.dialogFormVisible = false
+  //           getColorList()
+  //         })
+  //         return
+  //       })
+  //       .catch(() => {
+  //         ElMessage({
+  //           type: 'info',
+  //           message: '已取消',
+  //         })
+  //       })
+  //     }
+
+  //     const handleClose = (done: () => void) => {
+  //       ElMessageBox.confirm('Are you sure to close this dialog?')
+  //         .then(() => {
+  //           done()
+  //         })
+  //         .catch(() => {
+  //           // catch error
+  //         })
+  //     }
+
+  //     return {
+  //       ...toRefs(state),
+  //       addColorGroup,
+  //       handleEdit,
+  //       handleDelete,
+  //       goAddColor,
+  //       handleClose,
+  //       getColorList
+  //     }
+  //   }
+  // }
 
   // test().then(({ data }) => (tests.value = data))
 </script>
@@ -62,9 +125,45 @@ interface ColorResult {
 <template>
 <div class="w-full flex">
   <div
-    class="min-w-0 flex-auto px-4 sm:px-6 xl:px-8 pt-10 pb-24 lg:pb-16"
+    class="min-w-0 flex-auto pt-4 pb-24 lg:pb-16"
   >
-    <div>
+  <div class="w-full flex">
+    <div class="xl:text-sm block flex-none w-48 mr-8 relative">
+      <div>
+        <el-tree :data="colorList" :props="defaultProps" @node-click="handleNodeClick" />
+        <el-menu
+          default-active="1"
+          class="el-menu-vertical-demo">
+          <el-menu-item v-for="(item, index) in colorList" :key="'color-'+ index" :index="String(item.colorId)">
+            <span>{{item.color}}</span>
+          </el-menu-item>
+        </el-menu>
+      </div>
+      <div>
+        <el-divider />
+        <el-button type="primary" @click="dialogFormVisible = true">增加</el-button>
+      </div>
+    </div>
+    <div class="min-w-0 flex-auto pb-24 lg:pb-16">
+      <el-table :data="colors">
+        <el-table-column type="index" width="50" />
+        <el-table-column label="name" prop="name"/>
+        <el-table-column label="key" prop="key"/>
+        <el-table-column label="Operations">
+          <template #default="scope">
+            <el-button size="small" @click="handleEdit(scope.$index, scope.row)">修改</el-button>
+            <el-button
+              size="small"
+              type="danger"
+              @click="handleDelete(scope.$index, scope.row)"
+              >删除</el-button
+            >
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+  </div>
+    <!-- <div>
       <div class="grid grid-cols1 gap-8">
         <div v-for="(item, index) in colorList" :key="'color'+ index" class="hover:cursor-pointer hover:bg-gray-200">
           <div
@@ -101,11 +200,22 @@ interface ColorResult {
           </div>
         </div>
       </div>
-      <!-- <div class="border-gray-200 rounded-md border-2 border-dotted flex align-middle justify-center p-2">
-        <i class="fas fa-plus text-gray-400 text-2xl cursor-pointer" @click="addColorGroup()"></i>
-      </div> -->
-    </div>
+    </div> -->
   </div>
+
+  <el-dialog v-model="dialogFormVisible" title="添加颜色" :before-close="handleClose">
+    <el-form :model="form">
+      <el-form-item label="颜色" :label-width="formLabelWidth">
+        <el-input v-model="form.name" autocomplete="off" />
+      </el-form-item>
+    </el-form>
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">取消</el-button>
+        <el-button type="primary" @click="goAddColor">确认</el-button>
+      </span>
+    </template>
+  </el-dialog>
 </div>
 </template>
 

@@ -1,7 +1,7 @@
 <!--
  * @Author: zdh
  * @Date: 2022-05-16 16:26:10
- * @LastEditTime: 2022-05-31 16:54:51
+ * @LastEditTime: 2022-06-07 10:09:58
  * @Description: 
 -->
 <script setup lang="ts">
@@ -41,18 +41,8 @@ stylesList(null).then(res => {
       }
     })
   })
-   console.log("++++++")
-  console.dir(des)
   stylesListArr.value = des
 })
-  // console.dir(colorTest)
-  // const colorList = ref()
-  // colorTest( {id: 1} ).then( result  => {
-  //   // tests.value = data
-  //   // console.log('777777777777')
-  //   // console.dir(data)
-  //   colorList.value = result.data
-  // })
 
 
 

@@ -3,3 +3,8 @@ export interface ColorUnit {
   color?: string,
   colors?: string
 }
+
+export interface ColorsPerUnit {
+  name: string,
+  key: string
+}

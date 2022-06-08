@@ -1,7 +1,7 @@
 /*
  * @Author: zdh
  * @Date: 2022-05-07 17:12:55
- * @LastEditTime: 2022-05-31 14:09:46
+ * @LastEditTime: 2022-06-08 11:22:29
  * @Description: 
  */
 import { RouteEnum } from '../../enum/RouteEnum'
@@ -21,27 +21,22 @@ export default class Axios {
   }
 
   public async request<T, D = ResponseResult<T>>(config: AxiosRequestConfig) {
-    console.log('666666')
     return new Promise(async (resolve, reject) => {
       try {
-        console.log("3485923745")
-        
         const response = await this.instance.request<D>(config)
-        
         interface Res {
           msg: string
-          status: number
+          code: number
           data: T
         }
         const res = response.data as unknown as Res
-        if(res.status === 200 ) {
+        if(res.code === 200 ) {
           resolve(response.data)
         }else{
           ElMessage.error(res.msg)
           reject(response.data)
         }
       } catch (error) {
-        console.log("----------")
         reject(error)
       }
     }) as Promise<D>
@@ -83,7 +78,6 @@ export default class Axios {
             router.push({ name: RouteEnum.LOGIN })
             break
           case 500:
-            console.log('55555555')
             ElMessage.error(error.response.msg)
             break;
           case 422:

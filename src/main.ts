@@ -17,7 +17,7 @@ class Main {
   }
 
   //初始应用
-  private app(): AppType {    
+  private app(): AppType {
     setupPlugins(app)
     setupRouter(app)
 

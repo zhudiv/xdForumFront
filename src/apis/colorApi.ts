@@ -1,7 +1,7 @@
 /*
  * @Author: zdh
  * @Date: 2022-05-23 11:04:50
- * @LastEditTime: 2022-06-08 15:26:02
+ * @LastEditTime: 2022-06-09 15:41:44
  * @Description: 
  */
 import { http } from '@/plugins/axios'
@@ -41,7 +41,6 @@ export function colorListById(data: ColorUnit){
 }
 
 export function colorEdit(data: ColorUnit){
-  console.log('99999999999999999999')
   return http.request<ColorUnit>({
     url: `color/edit`,
     method: 'post',

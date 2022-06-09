@@ -168,7 +168,7 @@ const tableData: User[] = [
   <div class="flex gap-2">
     <div class="bg-white p-2 shadow-sm rounded-sm w-1/6">
       <div class="custom-tree-container ">
-        <p>模块2</p>
+        <p>模块</p>
         <el-divider />
         <el-tree
           :data="listData"

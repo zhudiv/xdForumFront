@@ -1,12 +1,12 @@
 /*
  * @Author: zdh
  * @Date: 2022-06-02 13:43:39
- * @LastEditTime: 2022-06-02 13:58:35
+ * @LastEditTime: 2022-06-16 14:03:00
  * @Description: 
  */
-const listToArr = function(list: any[], name: string): any[] {
+const listToArr = function(list: any[], name: string, sort: string): any[] {
   const data = JSON.parse(JSON.stringify(list)) // 浅拷贝不改变源数据
-  const result: any[] = []
+  var result: any[] = []
   if (!Array.isArray(data)) {
     return result
   }
@@ -25,6 +25,11 @@ const listToArr = function(list: any[], name: string): any[] {
       result.push(item)
     }
   })
+
+  if(sort){
+    result = result.sort((v1, v2) => v1.sort - v2.sort)
+  }
+
   return result
 }
 

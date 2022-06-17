@@ -1,7 +1,7 @@
 /*
  * @Author: zdh
  * @Date: 2022-06-01 17:59:50
- * @LastEditTime: 2022-06-02 09:20:31
+ * @LastEditTime: 2022-06-10 13:58:46
  * @Description: 
  */
 import { RouteRecordRaw } from 'vue-router'
@@ -18,4 +18,4 @@ export default {
       meta: { menu: { title: '用户' } },
     }
   ],
-} as RouteRecordRaw
+}

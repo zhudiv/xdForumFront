@@ -71,9 +71,13 @@ class Menu {
   }
 
   getMenuByRoute() {
+    console.log("7777777777777777777777777777")
+    console.dir(router.getRoutes())
+    console.dir(router.getRoutes().filter((route) => route.children.length && route.meta.menu && !route.meta.menu.menuHidden))
+
     return router
       .getRoutes()
-      .filter((route) => route.children.length && route.meta.menu)
+      .filter((route) => route.children.length && route.meta.menu && !route.meta.menu.menuHidden)
       .map((route) => {
         let menu: IMenu = { ...route.meta?.menu }
         menu.children = route.children

@@ -1,6 +1,12 @@
+<!--
+ * @Author: zdh
+ * @Date: 2022-05-07 17:12:55
+ * @LastEditTime: 2022-06-16 16:22:55
+ * @Description: 
+-->
 <script lang="ts" setup>
 import '@wangeditor/editor/dist/css/style.css'
-import { onBeforeUnmount, ref, shallowRef, watch } from 'vue'
+import { onBeforeUnmount, ref, shallowRef, watch, defineExpose } from 'vue'
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
 import { IEditorConfig, IDomEditor, IToolbarConfig, createToolbar, DomEditor } from '@wangeditor/editor'
 
@@ -54,6 +60,10 @@ const editorConfig: Partial<IEditorConfig> = {
     },
   },
 }
+
+defineExpose({
+  valueHtml
+});
 </script>
 
 <template>

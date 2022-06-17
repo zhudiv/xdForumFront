@@ -1,3 +1,9 @@
+/*
+ * @Author: zdh
+ * @Date: 2022-05-07 17:12:55
+ * @LastEditTime: 2022-06-10 14:34:22
+ * @Description: 
+ */
 import { RouteRecordRaw } from 'vue-router'
 
 export default {
@@ -25,4 +31,4 @@ export default {
       meta: { menu: { title: '500页面' } },
     },
   ],
-} as RouteRecordRaw
+}

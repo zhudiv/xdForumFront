@@ -1,34 +1,16 @@
-/*
- * @Author: zdh
- * @Date: 2022-05-07 17:12:55
- * @LastEditTime: 2022-05-31 15:04:43
- * @Description: 
- */
 import { RouteRecordRaw } from 'vue-router'
 
-// const layouts = import.meta.globEager('../layouts/*.vue')
+const layouts = import.meta.globEager('../layouts/*.vue')
 const views = import.meta.globEager('../views/**/*.vue')
 
-const layouts = import.meta.globEager('../layouts2/*.vue')
-console.log('9999999999999')
-// console.dir(lo)
-
-
 function getRoutes() {
-    console.log('88888888')
-    // console.dir(layouts)
     const layoutRoutes = [] as RouteRecordRaw[]
-    console.dir(layouts)
 
     Object.entries(layouts).forEach(([file, module]) => {
-        console.log('77777777777')
-        
         const route = getRouteByModule(file, module)
         route.children = getChildrenRoutes(route)
-        console.dir(file)
         layoutRoutes.push(route)
     })
-    console.dir(layoutRoutes)
     return layoutRoutes
 }
 

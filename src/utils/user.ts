@@ -1,7 +1,7 @@
 /*
  * @Author: zdh
  * @Date: 2022-05-07 17:12:55
- * @LastEditTime: 2022-06-01 14:34:19
+ * @LastEditTime: 2022-06-10 10:34:01
  * @Description: 
  */
 import { ElMessage } from 'element-plus'
@@ -49,7 +49,7 @@ export async function forgetPassword(values: IForgetPassword) {
  * @param data
  */
 function loginAndRegisterCallback(data: ILoginAndRegisterResponse) {
-  // store.set(CacheEnum.TOKEN_NAME, data.token)
+  store.set(CacheEnum.TOKEN_NAME, data.token)
   store.set(CacheEnum.TOKEN_TYPE, data.type)
 
   userStore().getUserInfo()

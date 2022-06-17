@@ -1,7 +1,7 @@
 /*
  * @Author: zdh
  * @Date: 2022-05-07 17:12:55
- * @LastEditTime: 2022-06-09 16:22:04
+ * @LastEditTime: 2022-06-10 13:45:20
  * @Description: 
  */
 import { Router, RouteRecordRaw } from 'vue-router'
@@ -30,25 +30,21 @@ let routes: RouteRecordRaw[] = []
 
 function asyncAutoLoad(router: Router) {
   console.log('-----------autoloadModuleRoutes autoload----------')
-  const user = userStore()
-  console.dir(user)
 
-  // if(store.get(CacheEnum.TOKEN_TYPE) == 2){
-    menuList(store.get(CacheEnum.TOKEN_TYPE)).then(res => {
+  if(store.get(CacheEnum.TOKEN_TYPE) == 2){
+    menuList(store.get(CacheEnum.TOKEN_TYPE))
+    .then(res => {
       console.log("------")
       console.dir(res)
+      routes = getRoutes(res.data as any[])
+      console.dir("************")
+      console.dir(routes)
+      routes.forEach((r) => router.addRoute(r))
     })
-  // }
+  }
 
-  routes = routes.map((route) => {
-    route.children = route.children?.filter((r) => {
-      const permission = r.meta?.permission
-      return permission ? user.info?.permissions?.includes(permission) : true
-    })
-    return route
-  })
 
-  routes.forEach((r) => router.addRoute(r))
+  
 }
 
 export default asyncAutoLoad

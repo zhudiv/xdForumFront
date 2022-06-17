@@ -102,7 +102,7 @@ const listData = ref()
 
 onBeforeMount( () => {
   stylesList(null).then( res => {
-    listData.value = listToArr(res.data, 'parentId')
+    listData.value = listToArr(res.data, 'parentId', 'sort')
   })
 })
 
@@ -164,9 +164,9 @@ const tableData: User[] = [
 </script>
 
 <template>
-<div class="p-2 rounded-sm shadow-sm relative">
-  <div class="flex gap-2">
-    <div class="bg-white p-2 shadow-sm rounded-sm w-1/6">
+<div class="p-2 rounded-sm shadow-sm relative h-full">
+  <div class="flex gap-2 h-full">
+    <div class="bg-white p-2 shadow-sm rounded-sm w-1/6 h-full">
       <div class="custom-tree-container ">
         <p>模块</p>
         <el-divider />
@@ -189,7 +189,6 @@ const tableData: User[] = [
       </div>
     </div>
     <div class="relative bg-white flex-auto  p-2 rounded-sm shadow-sm">
-      222
       <router-view></router-view>
     </div>
   </div>

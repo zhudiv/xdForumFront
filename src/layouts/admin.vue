@@ -1,7 +1,7 @@
 <!--
  * @Author: zdh
  * @Date: 2022-05-07 17:12:55
- * @LastEditTime: 2022-06-07 16:18:49
+ * @LastEditTime: 2022-06-16 13:50:19
  * @Description: 
 -->
 <script setup lang="ts">
@@ -31,7 +31,7 @@ watch(
         <Navbar />
         <HistoryLink />
       </div>
-      <div class="m-3 relative">
+      <div class="m-3 relative h-ful">
         <router-view #default="{ Component, route }">
           <Transition
             appear
